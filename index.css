@@ -1,0 +1,154 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Typeography */
+
+html {
+    font-size: 62.5%;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h1 {
+    font-size: 5rem;
+}
+h2 {
+    font-size: 4rem;
+}
+h3 {
+    font-size: 3rem;
+}
+
+button {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/*  */
+
+.clicker {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: red;
+}
+
+.itemStats {
+    position: relative;
+    border: 5px solid black;
+    border-radius: 30px;
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.itemSlot {
+    max-width: 50px;
+    width: 50px;
+    height: 50px;
+    aspect-ratio: 1;
+    border: 4px solid black;
+    margin: 5px;
+    text-align: center;
+    font-size: 4rem;
+}
+
+/* Top Stats Section */
+
+.moneyStats {
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+}
+
+/* label holders */
+
+.labelHolder {
+    display: flex;
+}
+
+.labelHolder .label {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.labelHolder .labelHolder__value {
+    font-size: 4rem;
+}
+
+.labelHolder--vertical {
+    flex-direction: column;
+}
+
+.labelHolder--horizontal {
+    flex-direction: row;
+}
+
+/* Upgrades */
+
+.upgrade {
+    width: 90%;
+    border: 2px solid black;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.upgrade__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    border-bottom: 2px solid black;
+}
+
+.upgrade__name {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.upgrade__img {
+    width: 50px;
+    height: 50px;
+    overflow: none;
+}
+
+.upgrade__description {
+    font-size: 1.5rem;
+}
+
+/* Tabs */
+
+.tabs {
+    display: flex;
+}
+
+.tabsBody {
+    border: 1px solid black;
+}
+
+.tabs button {
+    font-size: 2rem;
+    outline: none;
+    border: 1px solid black;
+    padding: 0 10px;
+    border-radius: 5px 5px 0 0;
+}
+
+.tabs button.active {
+  background-color: blue;
+}
+
+.tabcontent {
+  display: none;
+  justify-content: center;
+}
