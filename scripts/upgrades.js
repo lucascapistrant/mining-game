@@ -28,20 +28,31 @@ class AluminumAutoMiner {
     constructor() {
         this.html = document.querySelector('#aluminumAutoMiner');
         this.buyBtn = this.html.children[1].firstElementChild.firstElementChild.childNodes[1];
+        this.priceToken = this.html.children[0].children[2];
         this.price = 5;
+        this.priceMultiplier = 2.5;
 
         this.buyBtn.addEventListener("click", this.buy);
     }
     
     buy() {
+      if(aluminumAutoMiner.price <= money) {
         topStats.changeMoneyAmount(-aluminumAutoMiner.price);
+        aluminumAutoMiner.price *= aluminumAutoMiner.priceMultiplier;
+        aluminumAutoMiner.price = Math.floor(aluminumAutoMiner.price * 10) / 10;
+        aluminumAutoMiner.updatePriceToken();
         aluminumAutoMiner.upgrade();
+      }
     }
 
     upgrade() {
         setInterval(() => {
             oreClass.addOre("aluminum", 1);
         }, 5000);
+    }
+
+    updatePriceToken() {
+      this.priceToken.innerHTML = this.price;
     }
 }
 const upgrade = new Upgrades;

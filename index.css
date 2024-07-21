@@ -197,7 +197,7 @@ button {
 }
 
 .dropdown.open .dropdown__body {
-    height: 100px;
+    height: 50px;
     opacity: 1;
 }
 
