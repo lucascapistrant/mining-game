@@ -152,3 +152,21 @@ button {
   display: none;
   justify-content: center;
 }
+
+/* dropdowns */
+
+.dropdown__heading {
+    font-size: 2rem;
+}
+
+.dropdown__body {
+    height: 0;
+    opacity: 0;
+    transition: height .2s, opacity .2s;
+    overflow: hidden;
+}
+
+.dropdown.open .dropdown__body {
+    height: 100px;
+    opacity: 1;
+}
