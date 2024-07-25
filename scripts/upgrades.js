@@ -1,21 +1,3 @@
-{/* <div class="upgrade" id="autoMiner">
-            <header class="upgrade__header">
-              <img class="upgrade__img" src="/assets/temporarytile.png" alt="AutoMiner Upgrade"></img>
-              <h2 class="upgrade__name">Aluminum Auto Miner</h2>
-              <p class="upgrade__price" id="autoMiner">5</p>
-            </header>
-            <div class="upgrade__body">
-              <div class="dropdown">
-                <header class="dropdown__heading">Show Description</header>
-                <div class="dropdown__body">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis in
-                  nobis eius similique. Iste optio eos velit autem aperiam? Dolorum natus
-                  voluptatum alias odit, tenetur similique porro doloribus quia ut!
-                </div>
-              </div>
-            </div>
-          </div> */}
-
 class Upgrades {
     constructor() {
 
@@ -27,32 +9,48 @@ class Upgrades {
 class AluminumAutoMiner {
     constructor() {
         this.html = document.querySelector('#aluminumAutoMiner');
+
         this.buyBtn = this.html.children[1].firstElementChild.firstElementChild.childNodes[1];
-        this.priceToken = this.html.children[0].children[2];
+        this.priceToken = this.buyBtn.childNodes[1];
+        this.levelToken = this.html.children[0].children[2];
+
         this.price = 5;
         this.priceMultiplier = 2.5;
+        this.aluminumPerInterval  = 1;
+        this.aluminumGrowthRate = 2;
+        this.level = 0;
 
         this.buyBtn.addEventListener("click", this.buy);
     }
     
-    buy() {
-      if(aluminumAutoMiner.price <= money) {
-        topStats.changeMoneyAmount(-aluminumAutoMiner.price);
-        aluminumAutoMiner.price *= aluminumAutoMiner.priceMultiplier;
-        aluminumAutoMiner.price = Math.floor(aluminumAutoMiner.price * 10) / 10;
-        aluminumAutoMiner.updatePriceToken();
-        aluminumAutoMiner.upgrade();
+    buy = () => {
+      if(this.price <= money) {
+        topStats.changeMoneyAmount(-this.price);
+        this.price *= this.priceMultiplier;
+        this.price = Math.floor(this.price * 10) / 10;
+        this.updatePriceToken();
+        this.upgrade();
+        this.updateLevelToken();
       }
     }
 
     upgrade() {
-        setInterval(() => {
-            oreClass.addOre("aluminum", 1);
-        }, 5000);
+        if(this.level === 0) {
+          setInterval(() => {
+              oreClass.addOre("aluminum", this.aluminumPerInterval);
+          }, 5000);
+        }
+        this.aluminumPerInterval *= this.aluminumGrowthRate;
+        console.log(this.aluminumPerInterval);
+        this.level++;
     }
 
     updatePriceToken() {
       this.priceToken.innerHTML = this.price;
+    }
+
+    updateLevelToken() {
+      this.levelToken.innerHTML = this.level;
     }
 }
 const upgrade = new Upgrades;

@@ -2,7 +2,7 @@ const dropdowns = document.querySelectorAll('.dropdown');
 dropdowns.forEach(dropdown => {
     const heading = dropdown.querySelector('.dropdown__heading');
     heading.addEventListener("click", (event) => {
-        if (event.target.tagName === 'BUTTON') return;
+        if (event.target.tagName === 'BUTTON' || event.target.tagName === 'P') return;
         toggleDropDown(dropdown);
     });
 })
